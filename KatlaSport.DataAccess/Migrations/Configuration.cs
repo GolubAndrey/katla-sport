@@ -161,7 +161,6 @@ namespace KatlaSport.DataAccess.Migrations
                     LastUpdatedBy = creatorId,
                     LastUpdated = timestamp
                 });
-
             context.HiveSections.AddOrUpdate(
                 i => i.Id,
                 new StoreHiveSection
