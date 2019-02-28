@@ -194,6 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\SectionProductsController.cs" />
     <Compile Include="Controllers\HivesController.cs" />
     <Compile Include="Controllers\HiveSectionsController.cs" />
     <Compile Include="Controllers\ProductCategoriesController.cs" />
@@ -235,6 +236,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\SectionProducts\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

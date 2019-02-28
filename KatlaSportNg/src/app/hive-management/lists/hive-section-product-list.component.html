@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Products from section</h2>
+    <table class="table table-nonfluid">
+      <thead>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Quantity</th>
+        <th scope="col"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th scope="row">{{product.id}}</th>
+          <th scope="row">{{product.name}}</th>
+          <th scope="row">{{product.code}}</th>
+          <th scope="row">{{product.quantity}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

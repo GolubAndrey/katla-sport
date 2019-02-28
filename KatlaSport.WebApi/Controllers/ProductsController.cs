@@ -45,6 +45,8 @@ namespace KatlaSport.WebApi.Controllers
             return Ok(products);
         }
 
+        
+
         [HttpGet]
         [Route("{id:int:min(1)}")]
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product.", Type = typeof(Product))]
