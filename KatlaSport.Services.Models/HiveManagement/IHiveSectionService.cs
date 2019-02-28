@@ -13,7 +13,6 @@ namespace KatlaSport.Services.HiveManagement
         /// </summary>
         /// <returns>A <see cref="Task{List{HiveSectionListItem}}"/>.</returns>
         Task<List<HiveSectionListItem>> GetHiveSectionsAsync();
-
         /// <summary>
         /// Gets a hive section.
         /// </summary>
