@@ -5,8 +5,14 @@ namespace KatlaSport.Services.ProductManagement
 {
     public interface IProductToSectionRequestService
     {
-        Task<List<ProductToSectionRequest>> GetSectionRequests(int sectionId);
+        Task<List<ProductToSectionRequest>> GetSectionRequestsAsync(int sectionId);
+
+        Task<List<ProductToSectionRequest>> GetRequestsAsync();
 
         Task<ProductToSectionRequest> CreateRequestAsync(UpdateProductToSectionRequestRequest createRequest);
+
+        Task ConfirmRequestAsync(int requestId);
+
+        Task RejectRequestAsync(int requestId);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -31,7 +32,18 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetSectionRequestsAsync([FromUri] int sectionId)
         {
-            var requests = await _requestService.GetSectionRequests(sectionId);
+            var requests = await _requestService.GetSectionRequestsAsync(sectionId);
+            return Ok(requests);
+        }
+
+        [HttpGet]
+        [Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns all requests.", Type = typeof(ProductToSectionRequest[]))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetRequestsAsync()
+        {
+            var requests = await _requestService.GetRequestsAsync();
             return Ok(requests);
         }
 
@@ -41,7 +53,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.BadRequest)]
         [SwaggerResponse(HttpStatusCode.Conflict)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> AddProduct([FromBody] UpdateProductToSectionRequestRequest createRequest)
+        public async Task<IHttpActionResult> CreateRequestAsync([FromBody] UpdateProductToSectionRequestRequest createRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -51,6 +63,42 @@ namespace KatlaSport.WebApi.Controllers
             var request = await _requestService.CreateRequestAsync(createRequest);
             var location = string.Format("/api/requests/{0}", request.Id);
             return Created<ProductToSectionRequest>(location, request);
+        }
+
+        [HttpPut]
+        [Route("{id:int:min(1)}/confirm")]
+        [SwaggerResponse(HttpStatusCode.NoContent, Description = "Confirm request.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.Conflict)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> ConfirmRequestAsync([FromUri] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _requestService.ConfirmRequestAsync(id);
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
+        }
+
+        [HttpPut]
+        [Route("{id:int:min(1)}/reject")]
+        [SwaggerResponse(HttpStatusCode.NoContent, Description = "Confirm request.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.Conflict)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> RejectRequestAsync([FromUri] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _requestService.RejectRequestAsync(id);
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
         }
     }
 }
