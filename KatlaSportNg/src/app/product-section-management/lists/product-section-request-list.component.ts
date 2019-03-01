@@ -23,4 +23,24 @@ export class ProductToSectionRequestListComponent implements OnInit {
       this.productToSectionRequestsService.getProductToSectionRequests().subscribe(p => this.productToSectionRequests = p);
     });
   }
+
+  onConfirm(requestId: number) {
+    var request = this.productToSectionRequests.find(r => r.id == requestId);
+    this.productToSectionRequestsService.confirmRequest(requestId).subscribe(() => 
+                                                                                  this.productToSectionRequests.splice(
+                                                                                    this.productToSectionRequests.indexOf(
+                                                                                      request),1));
+  }
+
+  onReject(requestId: number) {
+    console.log('lol')
+    console.log(requestId)
+    var request = this.productToSectionRequests.find(r => r.id == requestId);
+    console.log(request)
+    this.productToSectionRequestsService.rejectRequest(requestId).subscribe(() => 
+                                                                                  this.productToSectionRequests.splice(
+                                                                                    this.productToSectionRequests.indexOf(
+                                                                                      request),1));
+    console.log(this.productToSectionRequests)
+  }
 }

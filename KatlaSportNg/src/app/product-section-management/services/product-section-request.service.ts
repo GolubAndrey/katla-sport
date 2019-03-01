@@ -18,4 +18,12 @@ export class ProductToSectionRequestsService {
         return this.http.get<Array<ProductToSectionRequestsListItem>>(`${this.url}`);
     }
 
+    confirmRequest(requestId: number): Observable<Object> {
+        return this.http.put(`${this.url}/${requestId}/confirm`, null);
+    }
+
+    rejectRequest(requestId: number): Observable<Object> {
+        return this.http.put(`${this.url}/${requestId}/reject`, null);
+    }
+
 }
