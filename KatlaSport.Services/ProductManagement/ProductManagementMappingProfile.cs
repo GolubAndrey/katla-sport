@@ -14,6 +14,8 @@ namespace KatlaSport.Services.ProductManagement
             CreateMap<DataAccessProduct, ProductCategoryProductListItem>();
             CreateMap<DataAccess.ProductStore.StoreItem, HiveSectionProductListItem>()
                 .ForMember(li => li.Id, opt => opt.MapFrom(p => p.ProductId));
+            CreateMap<DataAccess.ProductStore.ProductToSectionRequestItem, ProductToSectionRequest>();
+            CreateMap<UpdateProductToSectionRequestRequest, DataAccess.ProductStore.ProductToSectionRequestItem>();
 
             // TODO STEP 2 - Change the mapping below.
             CreateMap<DataAccessProduct, Product>()

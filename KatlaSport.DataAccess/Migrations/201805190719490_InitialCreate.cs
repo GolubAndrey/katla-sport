@@ -126,6 +126,7 @@ namespace KatlaSport.DataAccess.Migrations
             DropForeignKey("dbo.product_store_items", "product_store_item_product_id", "dbo.catalogue_products");
             DropForeignKey("dbo.product_store_items", "product_store_item_hive_section_id", "dbo.product_hive_sections");
             DropForeignKey("dbo.product_hive_section_categories", "product_category_id", "dbo.product_categories");
+            DropForeignKey("dbo.product_store_items", "product_store_item_hive_section_id", "dbo.product_hive_sections");
             DropIndex("dbo.product_store_items", new[] { "product_store_item_hive_section_id" });
             DropIndex("dbo.product_store_items", new[] { "product_store_item_product_id" });
             DropIndex("dbo.product_hive_sections", new[] { "product_hive_id" });

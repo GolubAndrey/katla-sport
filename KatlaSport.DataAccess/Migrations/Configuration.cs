@@ -395,6 +395,25 @@ namespace KatlaSport.DataAccess.Migrations
                     Address = "Brest, Repina-7",
                     Phone = "+37529-9832872"
                 });
+
+            context.Requests.AddOrUpdate(
+                i => i.Id,
+                new ProductToSectionRequestItem
+                {
+                    Id = 1,
+                    ProductId = 1,
+                    HiveSectionId = 1,
+                    Quantity = 3,
+                    Status = false
+                },
+                new ProductToSectionRequestItem
+                {
+                    Id = 2,
+                    ProductId = 2,
+                    HiveSectionId = 1,
+                    Quantity = 4,
+                    Status = false
+                });
         }
     }
 }

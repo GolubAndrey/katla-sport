@@ -80,15 +80,19 @@
     <Compile Include="ProductManagement\IProductCatalogueService.cs" />
     <Compile Include="ProductManagement\IProductCategoryService.cs" />
     <Compile Include="ProductManagement\IProductSectionService.cs" />
+    <Compile Include="ProductManagement\IProductToSectionRequestService.cs" />
     <Compile Include="ProductManagement\Product.cs" />
     <Compile Include="ProductManagement\ProductCategory.cs" />
     <Compile Include="ProductManagement\ProductCategoryListItem.cs" />
     <Compile Include="ProductManagement\ProductCategoryProductListItem.cs" />
     <Compile Include="ProductManagement\ProductListItem.cs" />
+    <Compile Include="ProductManagement\ProductToSectionRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequestValidator.cs" />
     <Compile Include="ProductManagement\UpdateProductRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductRequestValidator.cs" />
+    <Compile Include="ProductManagement\UpdateProductToSectionRequestRequest.cs" />
+    <Compile Include="ProductManagement\UpdateProductToSectionRequestRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
