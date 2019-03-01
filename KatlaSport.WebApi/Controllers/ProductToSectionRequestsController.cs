@@ -12,7 +12,7 @@ using Swashbuckle.Swagger.Annotations;
 namespace KatlaSport.WebApi.Controllers
 {
     [ApiVersion("1.0")]
-    [RoutePrefix("api/requests")]
+    [RoutePrefix("api/productRequests")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [CustomExceptionFilter]
     [SwaggerResponseRemoveDefaults]

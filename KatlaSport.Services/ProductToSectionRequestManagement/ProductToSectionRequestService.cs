@@ -39,7 +39,7 @@ namespace KatlaSport.Services.ProductManagement
 
         public async Task<List<ProductToSectionRequest>> GetRequestsAsync()
         {
-            var dbRequests = await _requestContext.Requests.OrderBy(r => r.Id).ToArrayAsync();
+            var dbRequests = await _requestContext.Requests.Where(r => !r.Status).OrderBy(r => r.Id).ToArrayAsync();
             var requests = dbRequests.Select(r => Mapper.Map<ProductToSectionRequest>(r)).ToList();
 
             return requests;

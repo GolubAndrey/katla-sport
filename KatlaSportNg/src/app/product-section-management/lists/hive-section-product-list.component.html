@@ -11,16 +11,16 @@
       <tbody>
         <tr *ngFor="let product of products">
           <th scope="row">{{product.id}}</th>
-          <th scope="row">{{product.name}}</th>
-          <th scope="row">{{product.code}}</th>
-          <th scope="row">{{product.quantity}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.quantity}}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Request group">
+              <button  type="button" class="btn btn-primary">Make Request</button>
+            </div>
+          </td>
         </tr>
       </tbody>
-      <div class="btn-toolbar" role="toolbar" aria-label="Action buttons">
-        <div class="btn-group" role="group" aria-label="Add group">
-          <button routerLink="/hive/{{this.hiveId}}/section" type="button" class="btn btn-primary">Request to add to section</button>
-        </div>
-      </div>
     </table>
   </div>
   
