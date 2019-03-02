@@ -1,4 +1,4 @@
-export class ProductToSectionRequestsListItem {
+export class ProductToSectionRequest {
     constructor(
         public id: number,
         public productId: number,

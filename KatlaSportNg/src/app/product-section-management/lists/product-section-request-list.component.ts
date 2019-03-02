@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductToSectionRequestsService } from '../services/product-section-request.service';
-import { ProductToSectionRequestsListItem} from '../models/product-section-request-list-item'
+import { ProductToSectionRequest} from '../models/product-section-request'
 
 @Component({
   selector: 'app-product-section-request-list',
@@ -10,7 +10,7 @@ import { ProductToSectionRequestsListItem} from '../models/product-section-reque
 })
 export class ProductToSectionRequestListComponent implements OnInit {
 
-  productToSectionRequests: ProductToSectionRequestsListItem[];
+  productToSectionRequests: ProductToSectionRequest[];
 
   constructor(
     private route: ActivatedRoute,

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { ProductToSectionRequestsListItem } from '../models/product-section-request-list-item';
+import { ProductToSectionRequest } from '../models/product-section-request';
 
 
 @Injectable({
@@ -14,8 +14,8 @@ export class ProductToSectionRequestsService {
 
     constructor(private http: HttpClient) { }
 
-    getProductToSectionRequests():Observable<Array<ProductToSectionRequestsListItem>> {
-        return this.http.get<Array<ProductToSectionRequestsListItem>>(`${this.url}`);
+    getProductToSectionRequests():Observable<Array<ProductToSectionRequest>> {
+        return this.http.get<Array<ProductToSectionRequest>>(`${this.url}`);
     }
 
     confirmRequest(requestId: number): Observable<Object> {
@@ -24,6 +24,10 @@ export class ProductToSectionRequestsService {
 
     rejectRequest(requestId: number): Observable<Object> {
         return this.http.put(`${this.url}/${requestId}/reject`, null);
+    }
+
+    createRequest(productToSectionRequest: ProductToSectionRequest):Observable<ProductToSectionRequest>{
+        return this.http.post<ProductToSectionRequest>(`${this.url}`,productToSectionRequest);
     }
 
 }

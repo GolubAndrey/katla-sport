@@ -30,7 +30,7 @@ namespace KatlaSport.Services.ProductManagement
             _userContext = userContext ?? throw new ArgumentNullException();
         }
 
-        public async Task<List<HiveSectionProductListItem>> GetSectionProductsAsync(int sectionId)
+        public async Task<List<HiveSectionProduct>> GetSectionProductsAsync(int sectionId)
         {
             var dbSections = await _sectionContext.Sections.Where(s => s.Id == sectionId).ToArrayAsync();
             if (dbSections.Length == 0)
@@ -39,16 +39,17 @@ namespace KatlaSport.Services.ProductManagement
             }
 
             var dbProducts = await _productContext.Products.Select(p => p.Items.Where(pr => pr.HiveSectionId == sectionId).FirstOrDefault()).Where(x => x != null).ToArrayAsync();
-            var products = dbProducts.Select(p => Mapper.Map<HiveSectionProductListItem>(p)).ToList();
+            var products = dbProducts.Select(p => Mapper.Map<HiveSectionProduct>(p)).ToList();
 
             var dbProductsForInformation = await _productContext.Products.ToArrayAsync();
             var productsForInformation = dbProductsForInformation.Select(p => Mapper.Map<ProductListItem>(p)).ToList();
-            var resultProducts = products.Join(productsForInformation, e => e.Id, o => o.Id, (e, o) => new HiveSectionProductListItem()
+            var resultProducts = products.Join(productsForInformation, e => e.Id, o => o.Id, (e, o) => new HiveSectionProduct()
             {
                 Id = e.Id,
                 Name = o.Name,
                 Code = o.Code,
-                Quantity = e.Quantity
+                Quantity = e.Quantity,
+                HiveSectionId = e.HiveSectionId
             });
 
             return resultProducts.ToList();

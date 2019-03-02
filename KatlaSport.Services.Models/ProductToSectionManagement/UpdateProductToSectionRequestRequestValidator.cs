@@ -6,7 +6,7 @@ namespace KatlaSport.Services.ProductManagement
     {
         public UpdateProductToSectionRequestRequestValidator()
         {
-            RuleFor(r => r.Quantity).GreaterThanOrEqualTo(0).LessThan(100);
+            RuleFor(r => r.Quantity).GreaterThanOrEqualTo(1).LessThanOrEqualTo(100);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace KatlaSport.WebApi.Controllers
 
         [HttpGet]
         [Route("{sectionId:int:min(1)}")]
-        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product from hive section.", Type = typeof(HiveSectionProductListItem[]))]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product from hive section.", Type = typeof(HiveSectionProduct[]))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetProduct([FromUri] int sectionId)

@@ -6,6 +6,8 @@
 
         public int ProductId { get; set; }
 
+        public int HiveId { get; set; }
+
         public int HiveSectionId { get; set; }
 
         public int Quantity { get; set; }

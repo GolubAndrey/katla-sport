@@ -14,6 +14,13 @@
           <td>{{product.name}}</td>
           <td>{{product.code}}</td>
           <td>{{product.quantity}}</td>
+          <td>  
+            <span class="btn-toolbar" role="toolbar" aria-label="Hive section action buttons" style="display: block; white-space:nowrap;">
+                <div class="btn-group" role="group" aria-label="Edit group">
+                  <button routerLink="/productRequests/{{product.hiveSectionId}}/{{product.id}}" type="button" class="btn btn-primary">Make request</button>
+                </div>
+            </span>
+        </td>
         </tr>
       </tbody>
     </table>

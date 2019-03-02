@@ -7,7 +7,7 @@ namespace KatlaSport.Services.ProductToSectionManagement
     {
         public ProductToSectionManagementMappingProfile()
         {
-            CreateMap<DataAccess.ProductStore.StoreItem, HiveSectionProductListItem>()
+            CreateMap<DataAccess.ProductStore.StoreItem, HiveSectionProduct>()
                 .ForMember(li => li.Id, opt => opt.MapFrom(p => p.ProductId));
         }
     }

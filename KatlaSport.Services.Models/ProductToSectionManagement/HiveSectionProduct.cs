@@ -3,11 +3,13 @@
     /// <summary>
     /// Represent a product in section
     /// </summary>
-    public class HiveSectionProductListItem
+    public class HiveSectionProduct
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public int HiveSectionId { get; set; }
 
         public string Code { get; set; }
 
