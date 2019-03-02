@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Products from section</h2>
+    <table class="table table-nonfluid">
+      <thead>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Quantity</th>
+        <th scope="col"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.quantity}}</td>
+          <td>  
+            <span class="btn-toolbar" role="toolbar" aria-label="Hive section action buttons" style="display: block; white-space:nowrap;">
+                <div class="btn-group" role="group" aria-label="Edit group">
+                  <button routerLink="/productRequests/{{product.hiveSectionId}}/{{product.id}}" type="button" class="btn btn-primary">Make request</button>
+                </div>
+            </span>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

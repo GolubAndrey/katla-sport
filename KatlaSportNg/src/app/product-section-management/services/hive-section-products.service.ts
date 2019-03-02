@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { HiveSection } from '../models/hive-section';
-import { HiveSectionListItem } from '../models/hive-section-list-item';
+import { HiveSection } from '../../hive-management/models/hive-section';
+import { HiveSectionListItem } from '../../hive-management/models/hive-section-list-item';
 import { HiveSectionProductsListItem } from '../models/hive-section-products-list-item';
 
 

@@ -5,6 +5,6 @@ namespace KatlaSport.Services.ProductManagement
 {
     public interface IProductSectionService
     {
-        Task<List<HiveSectionProductListItem>> GetSectionProductsAsync(int sectionId);
+        Task<List<HiveSectionProduct>> GetSectionProductsAsync(int sectionId);
     }
 }

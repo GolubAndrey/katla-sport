@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HiveSectionProductListComponent } from './hive-section-product-list.component';
+import { ProductToSectionRequestListComponent } from './product-section-request-list.component';
 
 describe('HiveSectionProductListComponent', () => {
-  let component: HiveSectionProductListComponent;
-  let fixture: ComponentFixture<HiveSectionProductListComponent>;
+  let component: ProductToSectionRequestListComponent;
+  let fixture: ComponentFixture<ProductToSectionRequestListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HiveSectionProductListComponent ]
+      declarations: [ ProductToSectionRequestListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HiveSectionProductListComponent);
+    fixture = TestBed.createComponent(ProductToSectionRequestListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -76,19 +76,23 @@
     <Compile Include="HiveManagement\UpdateHiveRequestValidator.cs" />
     <Compile Include="HiveManagement\UpdateHiveSectionRequest.cs" />
     <Compile Include="HiveManagement\UpdateHiveSectionRequestValidator.cs" />
-    <Compile Include="ProductManagement\HiveSectionProductListItem.cs" />
+    <Compile Include="ProductToSectionManagement\HiveSectionProduct.cs" />
     <Compile Include="ProductManagement\IProductCatalogueService.cs" />
     <Compile Include="ProductManagement\IProductCategoryService.cs" />
-    <Compile Include="ProductManagement\IProductSectionService.cs" />
+    <Compile Include="ProductToSectionManagement\IProductSectionService.cs" />
+    <Compile Include="ProductToSectionManagement\IProductToSectionRequestService.cs" />
     <Compile Include="ProductManagement\Product.cs" />
     <Compile Include="ProductManagement\ProductCategory.cs" />
     <Compile Include="ProductManagement\ProductCategoryListItem.cs" />
     <Compile Include="ProductManagement\ProductCategoryProductListItem.cs" />
     <Compile Include="ProductManagement\ProductListItem.cs" />
+    <Compile Include="ProductToSectionManagement\ProductToSectionRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequestValidator.cs" />
     <Compile Include="ProductManagement\UpdateProductRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductRequestValidator.cs" />
+    <Compile Include="ProductToSectionManagement\UpdateProductToSectionRequestRequest.cs" />
+    <Compile Include="ProductToSectionManagement\UpdateProductToSectionRequestRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,5 +102,6 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

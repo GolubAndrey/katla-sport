@@ -70,6 +70,11 @@ namespace KatlaSport.DataAccess
         public DbSet<Customer> Customers { get; set; }
 
         /// <summary>
+        /// Gets or sets a <see cref="DbSet"/> for <see cref="ProductToSectionRequestItem"/>
+        /// </summary>
+        public DbSet<ProductToSectionRequestItem> Requests { get; set; }
+
+        /// <summary>
         /// Overrides base method.
         /// </summary>
         /// <param name="modelBuilder"><see cref="DbModelBuilder"/>.</param>

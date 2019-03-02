@@ -10,7 +10,9 @@ import { ProductFormComponent } from './product-management/forms/product-form.co
 import { ProductCategoryListComponent } from './product-management/lists/product-category-list.component';
 import { ProductCategoryProductListComponent } from './product-management/lists/product-category-product-list.component';
 import { ProductListComponent } from './product-management/lists/product-list.component';
-import { HiveSectionProductListComponent} from './hive-management/lists/hive-section-product-list.component'
+import { HiveSectionProductListComponent} from './product-section-management/lists/hive-section-product-list.component'
+import { ProductToSectionRequestListComponent} from './product-section-management/lists/product-section-request-list.component'
+import { ProductToSectionRequestFormComponent} from './product-section-management/forms/product-section-request-form.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -29,7 +31,9 @@ const routes: Routes = [
   { path: 'section/:id', component: HiveSectionFormComponent },
   { path: 'hive/:hiveId/section', component: HiveSectionFormComponent },
   { path: 'section/:hiveId/:id', component: HiveSectionFormComponent },
-  { path: 'sectionProducts/:id', component: HiveSectionProductListComponent}
+  { path: 'sectionProducts/:id', component: HiveSectionProductListComponent},
+  { path: 'productRequests', component: ProductToSectionRequestListComponent},
+  { path: 'productRequests/:hiveSectionId/:productId', component: ProductToSectionRequestFormComponent}
 ];
 
 @NgModule({
