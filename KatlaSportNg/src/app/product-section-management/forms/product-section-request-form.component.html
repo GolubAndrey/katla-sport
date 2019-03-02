@@ -15,12 +15,12 @@
 
     <div class="form-group">
       <label for="quantity" id="quantityLabel">Quantity</label>
-      <input type="number" class="form-control" id="quantity" aria-describedby="quantityLabel" required min="1" max="100" [(ngModel)]="request.quantity"
+      <input type="number" class="form-control" id="quantity" aria-describedby="quantityLabel" min="1" max="100" required [(ngModel)]="request.quantity"
         name="quantity" #quantity="ngModel">
       <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="alert alert-danger">
         <div *ngIf="quantity.errors.required">Product quantity is required.</div>
-        <div *ngIf="quantity.errors?.min">Quantity should be more than 0</div>
-        <div *ngIf="quantity.errors?.max">Quantity should be less than 50</div>
+        <div *ngIf="quantity.errors.min">Quantity should be more than 0</div>
+        <div *ngIf="quantity.errors.max">Quantity should be less than 100</div>
       </div>
     </div>
 
