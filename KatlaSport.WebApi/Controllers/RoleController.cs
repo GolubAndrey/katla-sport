@@ -17,7 +17,7 @@ namespace KatlaSport.WebApi.Controllers
         [AllowAnonymous]
         public async Task<IHttpActionResult> GetAllRoles()
         {
-            var roles = _userService.GetAllRoles();
+            var roles = await _userService.GetAllRoles();
 
             return Ok(roles);
         }

@@ -88,13 +88,13 @@ namespace KatlaSport.Services.UserManagement
             return model;
         }
 
-        public async Task<IEnumerable<RoleModel>> GetAllRoles()
+        public async Task<List<RoleModel>> GetAllRoles()
         {
             var roles = _userContext.RoleManager.Roles.Select(x => new RoleModel()
             {
                 Id = x.Id,
                 Role = x.Name
-            });
+            }).ToList();
 
             return roles;
         }

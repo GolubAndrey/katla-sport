@@ -11,7 +11,7 @@ namespace KatlaSport.Services.UserManagement
 
         Task Authenticate(OAuthGrantResourceOwnerCredentialsContext context);
 
-        Task<IEnumerable<RoleModel>> GetAllRoles();
+        Task<List<RoleModel>> GetAllRoles();
 
         Task<User> GetUserClaims(IPrincipal user);
     }
