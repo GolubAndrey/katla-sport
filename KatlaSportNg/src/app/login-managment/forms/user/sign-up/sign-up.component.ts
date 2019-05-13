@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit {
     this.resetForm();
     this.userService.getAllRoles().subscribe(
       (data : any)=>{
+        console.log(data)
         data.forEach(obj => obj.selected = false);
         this.roles = data;
       }
@@ -36,13 +37,16 @@ export class SignUpComponent implements OnInit {
       userName: '',
       password: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      roles: []
     }
+    if (this.roles)
+      this.roles.map(x => x.selected = false);
   }
 
   OnSubmit(form: NgForm) {
-    console.log(form.value)
-    this.userService.registerUser(form.value)
+    var x = this.roles.filter(x => x.selected).map(y => y.role);
+    this.userService.registerUser(form.value, x)
       .subscribe(data =>{
         this.resetForm(form);
         this.toastr.success('User registration successful')},
@@ -50,5 +54,9 @@ export class SignUpComponent implements OnInit {
           console.log(error.error)
           this.toastr.error(error.error.message);
         });
+  }
+
+  updateSelectedRoles(index) {
+    this.roles[index].selected = !this.roles[index].selected;
   }
 }

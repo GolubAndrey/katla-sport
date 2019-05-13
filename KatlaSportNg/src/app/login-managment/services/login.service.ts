@@ -10,13 +10,14 @@ export class UserService {
   private url = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User) {
+  registerUser(user: User, userRoles : string[]) {
     const body: User = {
       id: user.id,
       userName: user.userName,
       password: user.password,
       firstName: user.firstName,
-      lastName: user.lastName
+      lastName: user.lastName,
+      roles: userRoles
     }
     var reqHeader = new HttpHeaders({'No-Auth':'True'});
     return this.http.post(this.url + '/api/User/Register', body,{headers : reqHeader});

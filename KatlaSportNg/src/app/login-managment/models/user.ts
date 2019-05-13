@@ -5,5 +5,6 @@ export class User {
         public password: String,
         public firstName: String,
         public lastName: String,
+        public roles: String[],
     ) { }
 }
