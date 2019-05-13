@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using KatlaSport.DataAccess.UserCatalogue;
 
 namespace KatlaSport.DataAccess
 {
@@ -15,6 +16,7 @@ namespace KatlaSport.DataAccess
             builder.RegisterType<ProductStore.ProductStoreContext>().As<ProductStore.IProductStoreContext>().InstancePerRequest();
             builder.RegisterType<CustomerCatalogue.CustomerContext>().As<CustomerCatalogue.ICustomerContext>().InstancePerRequest();
             builder.RegisterType<DebugDatabaseLogger>().As<IDatabaseLogger>();
+            builder.RegisterType<UserContext>().As<IUserContext>().InstancePerRequest();
         }
     }
 }

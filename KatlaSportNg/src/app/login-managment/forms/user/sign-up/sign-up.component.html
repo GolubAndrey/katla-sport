@@ -1,0 +1,38 @@
+<div *ngIf="isRegisterError" class="red-text center error-message">
+  User with the same name already exists
+</div>
+<form class="simple-register-container" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <input class="validate" type="text" name="userName" #userName="ngModel" [(ngModel)]="user.userName" required>
+      <label data-error="Required field!">UserName</label>
+    </div>
+    <div class="col-md-12 form-group">
+      <input class="validate" type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required minlength="3">
+      <label>Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName">
+      <label>First Name</label>
+    </div>
+    <div class="col-md-12 form-group">
+      <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName">
+      <label>Last Name</label>
+    </div>
+  </div>
+  <div class="row" *ngIf="roles">
+    <ul>
+      <li *ngFor="let item of roles;let i = index">
+        <input type="checkbox" [id]="'roles-'+i" value="{{item.Id}}" [checked]="item.selected"  (change)="updateSelectedRoles(i)">
+        <label [for]="'roles-'+i">{{item.Name}}</label>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <button [disabled]="!userRegistrationForm.valid" class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

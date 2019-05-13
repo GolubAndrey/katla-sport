@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +19,15 @@ import { ProductCategoryProductListComponent } from 'app/product-management/list
 import { ProductListComponent } from 'app/product-management/lists/product-list.component';
 import { ProductCategoryService } from 'app/product-management/services/product-category.service';
 import { ProductService } from 'app/product-management/services/product.service';
+import { UserComponent } from './login-managment/forms/user/user.component';
+import { SignInComponent } from './login-managment/forms/user/sign-in/sign-in.component';
+import { SignUpComponent } from './login-managment/forms/user/sign-up/sign-up.component';
+import { UserService} from './login-managment/services/login.service'
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './login-managment/auth/auth.guard';
+import { AuthInterceptor} from './login-managment/auth/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +42,10 @@ import { ProductService } from 'app/product-management/services/product.service'
     HiveFormComponent,
     HiveSectionFormComponent,
     HiveSectionListComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
+    HeaderComponent,
   ],
   imports: [
     // Angular imports
@@ -42,6 +55,8 @@ import { ProductService } from 'app/product-management/services/product.service'
     HttpClientModule,
     // Application imports
     AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     // Angular providers
@@ -51,6 +66,13 @@ import { ProductService } from 'app/product-management/services/product.service'
     ProductCategoryService,
     HiveService,
     HiveSectionService,
+    UserService,
+    AuthGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
   ],
   bootstrap: [AppComponent]
 })
