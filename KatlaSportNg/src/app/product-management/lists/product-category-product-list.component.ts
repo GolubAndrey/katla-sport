@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductCategoryProductListItem } from '../models/product-category-product-list-item';
 import { ProductService } from '../services/product.service';
+import { UserService } from 'app/login-managment/services/login.service';
 
 @Component({
   selector: 'app-product-category-product-list',
@@ -16,7 +17,8 @@ export class ProductCategoryProductListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {

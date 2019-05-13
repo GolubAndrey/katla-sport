@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HiveListItem } from '../models/hive-list-item';
 import { HiveService } from '../services/hive.service';
+import { UserService } from 'app/login-managment/services/login.service';
 
 @Component({
   selector: 'app-hive-list',
@@ -11,7 +12,10 @@ export class HiveListComponent implements OnInit {
 
   hives: HiveListItem[];
 
-  constructor(private hiveService: HiveService) { }
+  constructor(
+    private hiveService: HiveService,
+    private userService: UserService
+    ) { }
 
   ngOnInit() {
     this.getHives();
