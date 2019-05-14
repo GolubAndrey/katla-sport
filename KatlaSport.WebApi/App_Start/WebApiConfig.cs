@@ -6,7 +6,7 @@ namespace KatlaSport.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors();
+            //config.EnableCors();
             // Web API configuration and services
             //config.AddApiVersioning();
 
@@ -18,6 +18,8 @@ namespace KatlaSport.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new AuthorizeAttribute());
         }
     }
 }

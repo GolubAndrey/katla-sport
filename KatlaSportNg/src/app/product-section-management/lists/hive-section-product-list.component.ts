@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HiveSectionProductsService } from '../services/hive-section-products.service';
 import { HiveSectionProductsListItem} from '../models/hive-section-products-list-item'
+import { UserService } from 'app/login-managment/services/login.service';
 
 @Component({
   selector: 'app-hive-section-product-list',
@@ -16,7 +17,8 @@ export class HiveSectionProductListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private hiveSectionProductsService: HiveSectionProductsService
+    private hiveSectionProductsService: HiveSectionProductsService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {

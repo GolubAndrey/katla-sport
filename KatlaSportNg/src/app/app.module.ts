@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +24,15 @@ import { HiveSectionProductListComponent} from 'app/product-section-management/l
 import { ProductToSectionRequestListComponent} from 'app/product-section-management/lists/product-section-request-list.component'
 import { ProductToSectionRequestsService} from 'app/product-section-management/services/product-section-request.service'
 import { ProductToSectionRequestFormComponent} from 'app/product-section-management/forms/product-section-request-form.component'
+import { UserComponent } from './login-managment/forms/user/user.component';
+import { SignInComponent } from './login-managment/forms/user/sign-in/sign-in.component';
+import { SignUpComponent } from './login-managment/forms/user/sign-up/sign-up.component';
+import { UserService} from './login-managment/services/login.service'
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './login-managment/auth/auth.guard';
+import { AuthInterceptor} from './login-managment/auth/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +49,11 @@ import { ProductToSectionRequestFormComponent} from 'app/product-section-managem
     HiveSectionListComponent,
     HiveSectionProductListComponent,
     ProductToSectionRequestListComponent,
-    ProductToSectionRequestFormComponent
+    ProductToSectionRequestFormComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
+    HeaderComponent,
   ],
   imports: [
     // Angular imports
@@ -50,6 +63,8 @@ import { ProductToSectionRequestFormComponent} from 'app/product-section-managem
     HttpClientModule,
     // Application imports
     AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     // Angular providers
@@ -61,6 +76,13 @@ import { ProductToSectionRequestFormComponent} from 'app/product-section-managem
     HiveSectionService,
     HiveSectionProductsService,
     ProductToSectionRequestsService,
+    UserService,
+    AuthGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
   ],
   bootstrap: [AppComponent]
 })

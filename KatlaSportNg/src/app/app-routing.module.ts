@@ -13,27 +13,39 @@ import { ProductListComponent } from './product-management/lists/product-list.co
 import { HiveSectionProductListComponent} from './product-section-management/lists/hive-section-product-list.component'
 import { ProductToSectionRequestListComponent} from './product-section-management/lists/product-section-request-list.component'
 import { ProductToSectionRequestFormComponent} from './product-section-management/forms/product-section-request-form.component'
+import { UserComponent} from './login-managment/forms/user/user.component'
+import { SignInComponent} from './login-managment/forms/user/sign-in/sign-in.component'
+import { SignUpComponent} from './login-managment/forms/user/sign-up/sign-up.component'
+import { AuthGuard } from './login-managment/auth/auth.guard';
+import { HeaderComponent} from './header/header.component'
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'main', component: MainPageComponent },
-  { path: 'categories', component: ProductCategoryListComponent },
-  { path: 'category', component: ProductCategoryFormComponent },
-  { path: 'category/:id', component: ProductCategoryFormComponent },
-  { path: 'category/:id/products', component: ProductCategoryProductListComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'product/:id', component: ProductFormComponent },
-  { path: 'category/:categoryId/product/:id', component: ProductFormComponent },
-  { path: 'hives', component: HiveListComponent },
-  { path: 'hive', component: HiveFormComponent },
-  { path: 'hive/:id', component: HiveFormComponent },
-  { path: 'hive/:id/sections', component: HiveSectionListComponent },
-  { path: 'section/:id', component: HiveSectionFormComponent },
-  { path: 'hive/:hiveId/section', component: HiveSectionFormComponent },
-  { path: 'section/:hiveId/:id', component: HiveSectionFormComponent },
-  { path: 'sectionProducts/:id', component: HiveSectionProductListComponent},
-  { path: 'productRequests', component: ProductToSectionRequestListComponent},
-  { path: 'productRequests/:hiveSectionId/:productId', component: ProductToSectionRequestFormComponent}
+  { path: '', component: HeaderComponent, canActivate: [AuthGuard],
+    children:[
+    { path: 'main', component: MainPageComponent },
+    { path: 'categories', component: ProductCategoryListComponent },
+    { path: 'category', component: ProductCategoryFormComponent },
+    { path: 'category/:id', component: ProductCategoryFormComponent },
+    { path: 'category/:id/products', component: ProductCategoryProductListComponent },
+    { path: 'products', component: ProductListComponent },
+    { path: 'product/:id', component: ProductFormComponent },
+    { path: 'category/:categoryId/product/:id', component: ProductFormComponent },
+    { path: 'hives', component: HiveListComponent },
+    { path: 'hive', component: HiveFormComponent },
+    { path: 'hive/:id', component: HiveFormComponent },
+    { path: 'hive/:id/sections', component: HiveSectionListComponent },
+    { path: 'section/:id', component: HiveSectionFormComponent },
+    { path: 'hive/:hiveId/section', component: HiveSectionFormComponent },
+    { path: 'section/:hiveId/:id', component: HiveSectionFormComponent },
+    { path: 'sectionProducts/:id', component: HiveSectionProductListComponent},
+    { path: 'productRequests', component: ProductToSectionRequestListComponent},
+    { path: 'productRequests/:hiveSectionId/:productId', component: ProductToSectionRequestFormComponent}]},
+  { path: 'login', component: UserComponent,
+    children: [{ path: '', component: SignInComponent }]},
+  { path: 'signup', component: UserComponent,
+    children: [{ path: '', component: SignUpComponent }]},
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

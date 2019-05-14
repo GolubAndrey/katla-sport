@@ -7,13 +7,13 @@ namespace KatlaSport.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class fixResolveMigration : IMigrationMetadata
+    public sealed partial class AddUserMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fixResolveMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUserMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905141700522_fixResolveMigration"; }
+            get { return "201905071306129_AddUserMigration"; }
         }
         
         string IMigrationMetadata.Source

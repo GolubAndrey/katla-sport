@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using KatlaSport.Services.UserManagement;
 
 namespace KatlaSport.Services
 {
@@ -20,6 +21,7 @@ namespace KatlaSport.Services
             builder.RegisterType<ProductManagement.ProductSectionService>().As<ProductManagement.IProductSectionService>();
             builder.RegisterType<ProductManagement.ProductToSectionRequestService>().As<ProductManagement.IProductToSectionRequestService>();
             builder.RegisterType<UserContext>().As<IUserContext>();
+            builder.RegisterType<UserService>().As<IUserService>();
         }
     }
 }

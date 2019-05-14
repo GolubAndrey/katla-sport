@@ -5,13 +5,15 @@ using KatlaSport.DataAccess.Migrations;
 using KatlaSport.DataAccess.ProductCatalogue;
 using KatlaSport.DataAccess.ProductStore;
 using KatlaSport.DataAccess.ProductStoreHive;
+using KatlaSport.DataAccess.UserCatalogue;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace KatlaSport.DataAccess
 {
     /// <summary>
     /// Represents an application database context.
     /// </summary>
-    internal sealed class ApplicationDbContext : DbContext
+    public sealed class ApplicationDbContext : IdentityDbContext<StoreUser>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationDbContext"/> class.
@@ -20,13 +22,6 @@ namespace KatlaSport.DataAccess
             : base("DefaultConnection")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>(true));
-
-            // DatabaseLogger = databaseLogger;
-
-            // if (DatabaseLogger != null)
-            // {
-            //    Database.Log = DatabaseLogger.LogDatabaseCall;
-            // }
         }
 
         /// <summary>
@@ -83,6 +78,17 @@ namespace KatlaSport.DataAccess
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<StoreUser>()
+                .ToTable("User");
+            modelBuilder.Entity<IdentityRole>()
+                .ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole>()
+                .ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim>()
+                .ToTable("UserClaim");
+            modelBuilder.Entity<IdentityUserLogin>()
+                .ToTable("UserLogin");
         }
     }
 }

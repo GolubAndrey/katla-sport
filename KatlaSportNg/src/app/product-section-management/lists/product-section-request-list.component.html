@@ -14,12 +14,12 @@
           <td>{{productToSectionRequest.productId}}</td>
           <td>{{productToSectionRequest.hiveSectionId}}</td>
           <td>{{productToSectionRequest.quantity}}</td>
-          <td>
+          <td *ngIf="userService.isAdmin() || userService.isManager()">
             <span class="btn-toolbar" role="toolbar" aria-label="Product request buttons" style="display: block; white-space:nowrap;">
-              <div class="btn-group mr-2" role="group" aria-label="Confirm group" (click)="onConfirm(productToSectionRequest.id)">
+              <div class="btn-group mr-2" role="group" aria-label="Confirm group" *ngIf="userService.isAdmin() || userService.isManager()" (click)="onConfirm(productToSectionRequest.id)">
                 <button type="button" class="btn btn-primary">Confirm</button>
               </div>
-              <div class="btn-group mr-2" role="group" aria-label="Reject group" (click)="onReject(productToSectionRequest.id)">
+              <div class="btn-group mr-2" role="group" aria-label="Reject group" *ngIf="userService.isAdmin() || userService.isManager()" (click)="onReject(productToSectionRequest.id)">
                   <button type="button" class="btn btn-primary">Reject</button>
               </div>
             </span>

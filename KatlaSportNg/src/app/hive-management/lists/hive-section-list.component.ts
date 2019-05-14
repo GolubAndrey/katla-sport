@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HiveSectionListItem } from '../models/hive-section-list-item';
 import { HiveService } from '../services/hive.service';
 import { HiveSectionService} from '../services/hive-section.service';
+import { UserService } from 'app/login-managment/services/login.service';
 
 @Component({
   selector: 'app-hive-section-list',
@@ -18,7 +19,8 @@ export class HiveSectionListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private hiveService: HiveService,
-    private hiveSectionService: HiveSectionService
+    private hiveSectionService: HiveSectionService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {

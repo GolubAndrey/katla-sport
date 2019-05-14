@@ -1,0 +1,38 @@
+<form class="simple-register-container" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <input class="validate form-control  col-lg-6" type="text" name="userName" #userName="ngModel" [(ngModel)]="user.userName" required minlength="6">
+      <label data-error="Required field!">UserName</label>
+    </div>
+    <div class="col-md-12 form-group">
+      <input class="validate form-control col-lg-6" type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required minlength="6">
+      <label>Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <input type="text" class="form-control col-lg-6" name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName">
+      <label>First Name</label>
+    </div>
+    <div class="col-md-12 form-group">
+      <input type="text" class="form-control col-lg-6" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName">
+      <label>Last Name</label>
+    </div>
+  </div>
+  <div class="row" *ngIf="roles">
+    <ul class="list-unstyled">
+      <li *ngFor="let item of roles;let i = index">
+        <input type="checkbox" class="form-check-input ml-4" [id]="'roles-'+i" value="{{item.id}}" [checked]="item.selected"  (change)="updateSelectedRoles(i)">
+        <label class="form-check-label ml-5" [for]="'roles-'+i">{{item.role}}</label>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <button [disabled]="!userRegistrationForm.valid" class="btn btn-primary custom" type="submit">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="isRegisterError" class="alert alert-danger" role="alert">
+    This is a danger alert—check it out!
+  </div>
+</form>
