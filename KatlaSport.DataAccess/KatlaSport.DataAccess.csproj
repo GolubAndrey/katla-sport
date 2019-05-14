@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201902281613137_AddRequestTable.Designer.cs">
       <DependentUpon>201902281613137_AddRequestTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905141700522_fixResolveMigration.cs" />
+    <Compile Include="Migrations\201905141700522_fixResolveMigration.Designer.cs">
+      <DependentUpon>201905141700522_fixResolveMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductCatalogue\CatalogueProduct.cs" />
     <Compile Include="ProductCatalogue\CatalogueProductConfiguration.cs" />
     <Compile Include="ProductCatalogue\IProductCatalogueContext.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902281613137_AddRequestTable.resx">
       <DependentUpon>201902281613137_AddRequestTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141700522_fixResolveMigration.resx">
+      <DependentUpon>201905141700522_fixResolveMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
