@@ -4,12 +4,12 @@
 <form #loginForm="ngForm" class="simple-login-container" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
  <div class="row">
    <div class="col-md-12 form-group">
-     <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
+     <input type="text" class="form-control" #UserName ngModel name="UserName" placeholder="Username" required>
    </div>
  </div>
  <div class="row">
     <div class="col-md-12 form-group">
-      <input type="password" #Password ngModel name="Password" placeholder="Password" required>
+      <input type="password" class="form-control" #Password ngModel name="Password" placeholder="Password" required>
     </div>
   </div>
   <div class="row">

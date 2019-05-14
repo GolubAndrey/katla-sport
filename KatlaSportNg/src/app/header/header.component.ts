@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
   userToString(){
     return "<strong>UserName:</strong> " + this.userClaims.userName.toString() + "<br><strong>First name:</strong> " + this.userClaims.firstName.toString() + 
-      "<br><strong>Last name:</strong> " + this.userClaims.lastName.toString()
+      "<br><strong>Last name:</strong> " + this.userClaims.lastName.toString()+ "<br><strong>Roles:</strong> " + this.userService.getUserRoles().join(", ");
   }
 
   logOut(){

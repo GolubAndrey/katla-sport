@@ -42,4 +42,8 @@ export class UserService {
     var userRoles: string[] = JSON.parse(localStorage.getItem('userRoles'));
     return userRoles.indexOf('Admin') > -1
   }
+
+  getUserRoles(): string[] {
+    return JSON.parse(localStorage.getItem('userRoles'));
+  }
 }

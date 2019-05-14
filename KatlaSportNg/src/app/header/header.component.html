@@ -16,14 +16,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/hives">Hives</a>
       </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product Management</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Categories</a>
-          <a class="dropdown-item" href="#">Products</a>
-        </div>
-      </li> -->
-      <li class="nav-item dropdown" *ngIf="userClaims">
+      <li class="nav-item dropdown ml-5" *ngIf="userClaims">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{userClaims.userName}}
           </a>

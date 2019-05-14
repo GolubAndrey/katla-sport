@@ -58,12 +58,12 @@ namespace KatlaSport.WebApi.Controllers
             return Ok(category);
         }
 
-            [HttpPost]
-            [Route("")]
-            [SwaggerResponse(HttpStatusCode.Created, Description = "Creates a new product category.")]
-            [SwaggerResponse(HttpStatusCode.BadRequest)]
-            [SwaggerResponse(HttpStatusCode.Conflict)]
-            [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        [HttpPost]
+        [Route("")]
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Creates a new product category.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.Conflict)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> AddProductCategory([FromBody] UpdateProductCategoryRequest createRequest)
         {
             if (!ModelState.IsValid)
